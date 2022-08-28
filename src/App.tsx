@@ -12,19 +12,23 @@ function App() {
   console.log('App rendering')
   return (
     <div>
-      <PageTitle title={'INDEX'} />
+      {/* <PageTitle title={'INDEX'} />
       <PageTitle title={'My friends'} />
       <Header />
-      <Technologies />
-      <Raiting value={4} />
-      <Accordion title={'Friends list'} collapsed={false} />
+      <Technologies /> */}
+
+      <Accordion title={'Friends list'} collapsed={true} />
       <Accordion title={'Enemies list'} collapsed={false} />
+      {/* <Starlogo />
       <Starlogo />
       <Starlogo />
       <Starlogo />
-      <Starlogo />
-      <Starlogo />
+      <Starlogo /> */}
       <Raiting value={1} />
+      <Raiting value={2} />
+      <Raiting value={3} />
+      <Raiting value={4} />
+      <Raiting value={5} />
     </div>
   )
 }

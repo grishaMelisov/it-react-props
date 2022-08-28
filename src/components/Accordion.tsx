@@ -1,23 +1,12 @@
-import { AnyTxtRecord } from 'dns'
-import react from 'react'
-
 type AccordionPropsType = {
-  collapsed: any
+  collapsed: boolean
   title: string
 }
 function Accordion(props: AccordionPropsType) {
-  if (props.collapsed) {
-    return (
-      <div>
-        <AccordionTitle title={props.title} />
-      </div>
-    )
-  }
-
   return (
     <div>
       <AccordionTitle title={props.title} />
-      <AccordionBody />
+      {!props.collapsed && <AccordionBody />}
     </div>
   )
 }
