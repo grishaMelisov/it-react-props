@@ -1,0 +1,7 @@
+.appWrapper {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 30px;
+  gap: 10px; 
+}

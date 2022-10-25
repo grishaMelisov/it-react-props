@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import Technologies from './components/Technologies'
@@ -7,28 +7,24 @@ import Raiting from './components/Raiting'
 import Accordion from './components/Accordion'
 import starlogo from './star.png'
 import { Starlogo } from './components/Starlogo'
+import { OnOff } from './onOff'
 
 function App() {
   console.log('App rendering')
-  return (
-    <div>
-      {/* <PageTitle title={'INDEX'} />
-      <PageTitle title={'My friends'} />
-      <Header />
-      <Technologies /> */}
 
-      <Accordion title={'Friends list'} collapsed={true} />
-      <Accordion title={'Enemies list'} collapsed={false} />
-      {/* <Starlogo />
-      <Starlogo />
-      <Starlogo />
-      <Starlogo />
-      <Starlogo /> */}
+  const [switcher, setSwitcher] = useState(false)
+
+  const fooSwitch = () => {
+    switcher ? setSwitcher(false) : setSwitcher(true)
+  }
+
+  return (
+    <div className='appWrapper'>
+      <OnOff />
+
+      <Accordion title={'Friends list'} collapsed={false} />
+
       <Raiting value={1} />
-      <Raiting value={2} />
-      <Raiting value={3} />
-      <Raiting value={4} />
-      <Raiting value={5} />
     </div>
   )
 }
