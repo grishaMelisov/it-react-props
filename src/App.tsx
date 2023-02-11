@@ -1,30 +1,21 @@
 import React, { useState } from 'react'
-import logo from './logo.svg'
 import './App.css'
-import Technologies from './components/Technologies'
-import Header from './components/Header'
 import Raiting from './components/Raiting'
 import Accordion from './components/Accordion'
-import starlogo from './star.png'
-import { Starlogo } from './components/Starlogo'
-import { OnOff } from './onOff'
+import { OnOff } from './components/onOff'
 
 function App() {
   console.log('App rendering')
 
-  const [switcher, setSwitcher] = useState(false)
-
-  const fooSwitch = () => {
-    switcher ? setSwitcher(false) : setSwitcher(true)
-  }
+  const [collapsed, setCollapsed] = useState<boolean>(false)
+  const [ratingValue, setRatingValue] = useState(1)
+  const [on, setOn] = useState(false)
 
   return (
     <div className='appWrapper'>
-      <OnOff />
-
-      <Accordion title={'Friends list'} collapsed={false} />
-
-      <Raiting value={1} />
+      <OnOff isOn={on} onChange={setOn} />
+      <Accordion title={'Friends list'} collapsed={collapsed} onClick={setCollapsed} />
+      <Raiting value={ratingValue} onClick={setRatingValue} />
     </div>
   )
 }
@@ -37,5 +28,17 @@ function PageTitle(props: PageTitlePropsType) {
   console.log('title rendering')
   return <h1>{props.title}</h1>
 }
+
+function getDivisorsCnt(n: number) {
+  let sum = 0
+  for (let i = 1; i <= n; i++) {
+    if (n % i === 0) {
+      sum = sum + 1
+    }
+  }
+  return console.log(sum)
+}
+
+getDivisorsCnt(12)
 
 export default App

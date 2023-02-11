@@ -3,19 +3,18 @@ import { useState } from 'react'
 type AccordionPropsType = {
   collapsed: boolean
   title: string
+  onClick: (e: boolean) => void
 }
 
 function Accordion(props: AccordionPropsType) {
-  const [toggle, setToggle] = useState(false)
   const switcher = () => {
-    setToggle(!toggle)
+    props.onClick(!props.collapsed)
   }
-  console.log(toggle)
 
   return (
     <div>
       <AccordionTitle title={props.title} toggle={switcher} />
-      {toggle && <AccordionBody />}
+      {props.collapsed && <AccordionBody />}
     </div>
   )
 }
